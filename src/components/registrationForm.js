@@ -1,6 +1,36 @@
 import React, {useState} from 'react';
 
 function RegistrationForm() {
+    const [firstName, setFirstName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password,setPassword] = useState(null);
+    const [confirmPassword,setConfirmPassword] = useState(null);
+
+    const handleInputChange = (e) => {
+        const {id , value} = e.target;
+        if(id === "firstName"){
+            setFirstName(value);
+        }
+        if(id === "lastName"){
+            setLastName(value);
+        }
+        if(id === "email"){
+            setEmail(value);
+        }
+        if(id === "password"){
+            setPassword(value);
+        }
+        if(id === "confirmPassword"){
+            setConfirmPassword(value);
+        }
+
+    }
+
+    const handleSubmit  = () => {
+        console.log(firstName,lastName,email,password,confirmPassword);
+    }
+
     return(
       <div className="form">
           <div className="form-body">
@@ -26,7 +56,7 @@ function RegistrationForm() {
               </div>
           </div>
           <div class="footer">
-              <button type="button" className="btn btn-primary">Register</button>
+              <button type="button" className="btn btn-primary" onClick={()=>handleSubmit()} >Register</button>
           </div>
       </div>      
     )       
