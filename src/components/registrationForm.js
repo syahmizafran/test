@@ -27,7 +27,7 @@ function RegistrationForm() {
               </div>
           </div>
           <div class="footer">
-              <button type="button" class="btn btn-primary">Register</button>
+              <button type="button" className="btn btn-primary">Register</button>
           </div>
       </div>      
     )       
