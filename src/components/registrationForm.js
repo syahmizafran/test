@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './style.css'
+
 function RegistrationForm() {
     return(
       <div className="form">
@@ -26,7 +27,7 @@ function RegistrationForm() {
               </div>
           </div>
           <div class="footer">
-              <button type="submit" class="btn">Register</button>
+              <button type="button" class="btn btn-primary">Register</button>
           </div>
       </div>      
     )       
