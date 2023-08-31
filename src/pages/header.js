@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
+import Authentication from '../components/Authentication';
 
 const Header = () => {
   return (
@@ -12,14 +13,10 @@ const Header = () => {
         <div className = "collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
             <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <Link id = "button" className="nav-link" to="/">Home</Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/signup">Sign up</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/signin">Log In</Link>
-            </li>
+            <Authentication/>
+
         </ul>
         </div>
       </nav>

@@ -1,7 +1,34 @@
 
-import React from "react";
+import React, {useState} from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../firebase"
+import { useNavigate } from "react-router-dom";
   
 const RegistrationForm = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [fName, setFname] = useState('');
+  const [lName, setLname] = useState('');
+  const navigate = useNavigate('');
+
+  const signUp = (e) => {
+
+    e.preventDefault()
+    
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      navigate("/signin");
+     
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+
+
   return (
     <section className="">
 
@@ -25,36 +52,36 @@ const RegistrationForm = () => {
               <div className="card">
                 <div className="card-body py-5 px-md-5">
                 <h4 className="text-primary fw-bold text-center mb-4">Sign up to the website</h4>
-                  <form>
+                  <form onSubmit={signUp}>
                     <div className="row">
                       <div className="col-md-6 mb-4">
                         <div className="form-outline">
-                          <input type="text" id="form3Example1" className="form-control" />
-                          <label className="form-label" for="form3Example1">First name</label>
+                          <input type="text" id="form3Example1" className="form-control" value={fName} onChange = {(e)=> setFname(e.target.value)}/>
+                          <label className="form-label" htmlFor="form3Example1">First name</label>
                         </div>
                       </div>
                       <div className="col-md-6 mb-4">
                         <div className="form-outline">
-                          <input type="text" id="form3Example2" className="form-control" />
-                          <label className="form-label" for="form3Example2">Last name</label>
+                          <input type="text" id="form3Example2" className="form-control" value={lName} onChange = {(e)=> setLname(e.target.value)}/>
+                          <label className="form-label" htmlFor="form3Example2">Last name</label>
                         </div>
                       </div>
                     </div>
     
                     <div className="form-outline mb-4">
-                      <input type="email" id="form3Example3" className="form-control" />
-                      <label className="form-label" for="form3Example3">Email address</label>
+                      <input type="email" id="form3Example3" className="form-control" value={email} onChange = {(e)=> setEmail(e.target.value)} />
+                      <label className="form-label" htmlFor="form3Example3">Email address</label>
                     </div>
     
 
                     <div className="form-outline mb-4">
-                      <input type="password" id="form3Example4" className="form-control" />
-                      <label className="form-label" for="form3Example4">Password</label>
+                      <input type="password" id="form3Example4" className="form-control" value={password} onChange = {(e)=> setPassword(e.target.value)} />
+                      <label className="form-label" htmlFor="form3Example4">Password</label>
                     </div>
     
     
 
-                    <button type="submit" className="btn btn-primary btn-block mb-4">
+                    <button type="submit" id ="button1" className="btn btn-primary btn-block mb-4 rounded-pill">
                       Sign up
                     </button>
     
