@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../firebase"
 import { useNavigate } from "react-router-dom";
+
   
 const LogIn = () => {
 
@@ -9,16 +10,36 @@ const LogIn = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate('');
 
+
   const loginWeb = (e) => {
 
     e.preventDefault()
+    document.getElementById('passworderror').innerHTML = ""
+    document.getElementById('emailerror').innerHTML = ""
     
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      navigate("/home");
+      navigate("/dashboard");
     })
     .catch((error) => {
-      console.log(error);
+      const errorCode = error.code;
+
+      if (errorCode == "auth/user-not-found") {
+        document.getElementById('emailerror').innerHTML = "Email not registered" 
+      }
+      if (errorCode == "auth/invalid-email") {
+        document.getElementById('emailerror').innerHTML = "Email is invalid or empty" 
+      }
+
+      if (errorCode == "auth/missing-password") {
+        document.getElementById('passworderror').innerHTML = "Password is wrong" 
+      }
+      if (errorCode == "auth/wrong-password") {
+        document.getElementById('passworderror').innerHTML = "Password is wrong" 
+      }
+
+      console.log(errorCode);
+
     });
 
   }
@@ -53,12 +74,14 @@ const LogIn = () => {
                     <div className="form-outline mb-4">
                       <input type="email" id="form3Example3" className="form-control" value={email} onChange = {(e)=> setEmail(e.target.value)} />
                       <label className="form-label" htmlFor="form3Example3">Email address</label>
+                      <div className ="font-weight-light" id="emailerror"></div>
                     </div>
     
 
                     <div className="form-outline mb-4">
                       <input type="password" id="form3Example4" className="form-control" value={password} onChange = {(e)=> setPassword(e.target.value)}/>
                       <label className="form-label" htmlFor="form3Example4">Password</label>
+                      <div className ="font-weight-light" id = "passworderror"></div>
                     </div>
     
     

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {auth} from "../firebase"
 import { signOut, onAuthStateChanged } from "firebase/auth";
 
@@ -33,15 +33,18 @@ const Authentication = () => {
             
             <>
             <li className="nav-item">
-                <Link id = "button"className="nav-link" to="/signup">Sign up</Link>
+                <Link id = "button"className="nav-link" to="/signup"><strong>Sign up</strong></Link>
             </li>
             <li className="nav-item">
-                <Link id = "button" className="nav-link" to="/signin">Log In</Link>
+                <Link id = "button" className="nav-link" to="/signin"><strong>Log In</strong></Link>
             </li>
             </>:
             <>
             <li className="nav-item">
-                <Link id = "button" onClick = {userSignout} className="nav-link" to="/">Sign Out</Link>
+                <Link id = "button" className="nav-link" to="/dashboard"><strong>Library</strong></Link>
+            </li>
+            <li className="nav-item">
+                <Link id = "button" onClick = {userSignout} className="nav-link" to="/"><strong>Sign Out</strong></Link>
             </li>
             </>
             

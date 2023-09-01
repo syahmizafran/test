@@ -1,5 +1,20 @@
-body{
-    background: #f5f5f5;  
+body, html{
+    background: #fffefe;
+    height: 100vh;  
+
+}
+
+#navbarColor{
+    background: #205ac67d;  
+
+}
+#imageSizing{
+    height: 80%;
+    width: 100%;
+}
+
+#container1{
+    height: 80vh;
 
 }
 
@@ -36,7 +51,7 @@ body{
 /* button css */
 
 
-#button:hover { 
+#button:hover,#button12:hover, #button22:hover { 
 
     transform: scale(1.1); 
     
@@ -47,4 +62,16 @@ body{
     transform: scale(1.01); 
     
     }
+
+.tooltip-inner {
+    white-space:nowrap;
+    max-width:none;
+    text-align: left;
+    }
+    
+#fnameerror, #lnameerror, #passworderror, #emailerror {
+    color: #f62020;
+}
+
+
 
