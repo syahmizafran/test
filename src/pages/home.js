@@ -9,11 +9,13 @@ import image1 from "../30797.jpg"
 const Home = () => {
   const [userid,setUid] = useState('')
   const [userdata,setData] = useState([])
+  const [show, setShow] = useState(false);
+
   const auth = getAuth();
 
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      document.getElementById('innerAuth').innerHTML = '';
+      await setShow(true)
       // ...
     } else {
       // User is signed out
@@ -37,12 +39,20 @@ const Home = () => {
                 This website is to manage pre-loved books that has been donated to our library. You can browse books that are available in our library.
               </p>
               <div id="innerAuth" className="row align-items-center pt-2" >
+              {!show?
+              <>
                 <div className='col-6 col-lg-2'>
                   <Link className='btn btn-primary rounded-pill' id='button12' to='/signup'><>Sign Up</></Link>
                 </div>
                 <div className='col-6 col-lg-2'>
                   <Link className='btn btn-primary rounded-pill' id='button22' to='/signin'><>Log In</></Link>
                 </div>
+              </>
+                  :
+                  <></>
+
+                }
+
 
               </div>
 
