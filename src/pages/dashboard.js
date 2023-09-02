@@ -98,7 +98,7 @@ const Dashboard = () => {
                 {
                     val.map(values=>
                         <>
-                        <tr onClick= {()=>handleEdit(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>
+                        <tr onClick= {()=>handleShow(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>
                             <td>{values.bookTitle}</td>
                             <td>{values.bookAuthor}</td>
                             <td>{values.bookOwner}</td>
