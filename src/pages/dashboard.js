@@ -98,10 +98,10 @@ const Dashboard = () => {
                 {
                     val.map(values=>
                         <>
-                        <tr onClick= {()=>handleShow(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>
-                            <td>{values.bookTitle}</td>
-                            <td>{values.bookAuthor}</td>
-                            <td>{values.bookOwner}</td>
+                        <tr >
+                            <td onClick= {()=>handleShow(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>{values.bookTitle}</td>
+                            <td onClick= {()=>handleShow(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>{values.bookAuthor}</td>
+                            <td onClick= {()=>handleShow(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>{values.bookOwner}</td>
                             <td><button type="button" className="btn btn-primary" onClick= {()=>handleEdit(values.id, values.bookTitle, values.bookAuthor, values.bookDescription, values.bookOwner,)}>Update</button> <button onClick= {()=>handleDelete(values.id)}  type="button" className="btn btn-danger">Delete</button></td>
                             
                         </tr>
@@ -178,7 +178,7 @@ const Dashboard = () => {
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="container p-5">
-                    <h3 className="text-primary fw-bold text-center mb-4">Add a book to the library</h3>
+                    <h3 className="text-primary fw-bold text-center mb-4">Book information</h3>
                     <h4 id="succesfulReg" className="text-success font-weight-light text-center mb-4"></h4>
                         <form onSubmit={addBook}>
                         <div className="row">
