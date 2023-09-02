@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard';
 import LogIn from './pages/signIn';
 import Header from './pages/header';
 import SignUp from './pages/registrationForm';
+import { HashRouter } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,7 +17,7 @@ function App() {
   return (
     <>
 
-      <Router >
+      <HashRouter >
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Home />} />
@@ -27,7 +28,7 @@ function App() {
         </Route>
       </Routes>
         
-      </Router>
+      </HashRouter>
     </>
 
   );
